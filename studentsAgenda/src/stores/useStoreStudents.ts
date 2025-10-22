@@ -4,11 +4,8 @@ import type { IStudents } from "../types/IStudents";
 
 interface IUseStoreStudents {
     students : IStudents[],
-    monday: [],
-    tuesday: [],
-    wednesday: [],
-    thursday: [],
-    friday: [],
+    activeStudent: IStudents | null
+    setActiveStudents: (student: IStudents | null) => void
     addStudent : (newStudent : IStudents) => void  
 }
 
@@ -16,12 +13,10 @@ export const useStoreStudents = create<IUseStoreStudents>()(
     persist(
         (set) => ({
             students: [],
-            monday: [],
-            tuesday: [],
-            wednesday: [],
-            thursday: [],
-            friday: [],
             
+            activeStudent: null,
+
+            setActiveStudents: (student) => set({activeStudent : student}),
 
             addStudent: (newStudent) => set((state) => ({
                 students: [...state.students, newStudent]

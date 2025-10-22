@@ -1,6 +1,10 @@
+import { useStoreStudents } from '../../stores/useStoreStudents'
 import style from './Agenda.module.css'
 
 export const Agenda = () => {
+
+    const {students} = useStoreStudents() 
+
     return (
         <div className={style.containerPrincipal}>
             <table>
@@ -12,7 +16,9 @@ export const Agenda = () => {
                     <th>Viernes</th>
                 </thead>
                 <tbody>
-
+                    {students.map((s) => (
+                        <tr>{s.name}</tr>
+                    ))}
                 </tbody>
             </table>
         </div>
