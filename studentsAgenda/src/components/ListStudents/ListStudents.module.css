@@ -1,0 +1,80 @@
+.containerPrincipal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerStudent{
+    background-color: gray;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 500px;
+    color: rgb(36, 37, 37);
+}
+.containerStudent p {
+    font-size: 20px;
+}
+.shedule{
+    display: flex;
+    
+    overflow-x: auto;
+    gap: 10px;
+    background-color: rgb(59, 59, 59);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+    
+}
+.unitSchedule{
+    background-color: white;
+    padding: 8px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 100px;
+    max-width: 100px;
+    color: rgb(36, 37, 37);
+}
+.containerButton{
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.edit{
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    min-width: 50px;
+}
+.edit:hover{
+    background-color: rgb(73, 72, 72);
+    color: white;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+.delete{
+    background-color: red;
+    color: white;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    min-width: 50px;
+
+}
+.delete:hover{
+    cursor: pointer;
+    background-color: white;
+    color: red;
+    transition: 0.3s ease;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useStoreModal } from '../../stores/useStoreModal'
 import { useStoreStudents } from '../../stores/useStoreStudents'
 import style from './AddStudent.module.css'
@@ -7,7 +7,11 @@ import type { IStudents } from '../../types/IStudents'
 
 export const AddStudent = () => {
 
-    const {activeStudent, addStudent, editStudent} = useStoreStudents()
+    useEffect(() => {
+
+    },[])
+
+    const {activeStudent, addStudent, editStudent, setActiveStudents} = useStoreStudents()
     const {setView} = useStoreModal()
 
     const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes']
@@ -70,11 +74,13 @@ export const AddStudent = () => {
             if (activeStudent) {
                 editStudent(newStudent, newStudent.id)
                 alert('Se editó el estudiante')
+                setActiveStudents(null)
                 setView(false) // Cierro el modal
             } else {
 
                 addStudent(newStudent)
                 alert('Se creó el estudiante')
+                setActiveStudents(null)
                 setView(false) // Cierro el modal
             }
         } catch (error : any) {
@@ -97,13 +103,13 @@ export const AddStudent = () => {
                 <label htmlFor="">Curso</label>
                 <select name="course" id="" value={newStudent.course} onChange={handleChange}>
                     <option value="">Sin selección</option>
-                    <option value="1">1°</option>
-                    <option value="2">2°</option>
-                    <option value="3">3°</option>
-                    <option value="4">4</option>
-                    <option value="5">5°</option>
-                    <option value="6">6°</option>
-                    <option value="7">7°</option>
+                    <option value="1°">1°</option>
+                    <option value="2°">2°</option>
+                    <option value="3°">3°</option>
+                    <option value="4°">4</option>
+                    <option value="5°">5°</option>
+                    <option value="6°">6°</option>
+                    <option value="7°">7°</option>
                 </select>
 
 

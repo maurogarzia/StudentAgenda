@@ -11,12 +11,13 @@ export const StudentsScreen = () => {
     return (
         <div className={style.containerPrincipal}>
             <Header/>
-            <h1>Estuidantes</h1>
+            <h1 className={style.title}>Estudiantes</h1>
             <ListStudents/>
             {view && 
                 <div className={style.modalBackdrop}>
                     <AddStudent/>
-                </div>}
+                </div>
+            }
         </div>
     )
 }

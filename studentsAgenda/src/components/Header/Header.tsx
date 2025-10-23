@@ -2,15 +2,22 @@ import { useState } from 'react'
 import { useStoreModal } from '../../stores/useStoreModal'
 import style from './Header.module.css'
 import { useNavigate } from 'react-router-dom'
+import { useStoreStudents } from '../../stores/useStoreStudents'
 
 export const Header = () => {
 
     const {setView} = useStoreModal()
+    const {setActiveStudents} = useStoreStudents()
     const [menu, setMenu] = useState<boolean>(false)
     const navigate = useNavigate()
 
     const handleClick = (option: string) => {
         navigate(option)
+    }
+
+    const handleOpen = () => {
+        setActiveStudents(null)
+        setView(true)
     }
 
     return (
@@ -40,7 +47,7 @@ export const Header = () => {
                         </div>
                         
                         <p onClick={() => handleClick('/students')}>Estudiantes</p>
-                        <p onClick={() => setView(true)}>Agregar Estudiante</p>
+                        <p onClick={handleOpen}>Agregar Estudiante</p>
                         
                         <button onClick={() => setMenu(false)}>Cerrar</button>
                     </div>
