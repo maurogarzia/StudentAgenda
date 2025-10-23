@@ -7,6 +7,8 @@ interface IUseStoreStudents {
     activeStudent: IStudents | null
     setActiveStudents: (student: IStudents | null) => void
     addStudent : (newStudent : IStudents) => void  
+    editStudent : (newStudent : IStudents, id: string) => void  
+    deleteStudent : ( id: string) => void  
 }
 
 export const useStoreStudents = create<IUseStoreStudents>()(
@@ -20,11 +22,24 @@ export const useStoreStudents = create<IUseStoreStudents>()(
 
             addStudent: (newStudent) => set((state) => ({
                 students: [...state.students, newStudent]
+            })),
+
+            editStudent: (newStudent,id) => set((state) => ({
+                students: state.students.map((s) => (
+                    s.id === id ? newStudent : s
+                ))
+            })),
+
+            deleteStudent : (id) => set((state) => ({
+                students : state.students.filter((f) => (
+                    f.id !== id
+                ))
             }))
+
         }),
         {
-            name : '',
-            partialize: (state) => ({}),
+            name : 'students-storage',
+            partialize: (state) => ({students : state.students}),
         }
     )
 )

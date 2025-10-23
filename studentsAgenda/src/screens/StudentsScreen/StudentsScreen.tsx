@@ -1,24 +1,22 @@
-
 import { AddStudent } from '../../components/AddStudent/AddStudent'
-import { Agenda } from '../../components/Agenda/Agenda'
 import { Header } from '../../components/Header/Header'
+import { ListStudents } from '../../components/ListStudents/ListStudents'
 import { useStoreModal } from '../../stores/useStoreModal'
-import style from './MainScreen.module.css'
+import style from './StudentsScreen.module.css'
 
-export const MainScreen = () => {
+export const StudentsScreen = () => {
 
     const {view} = useStoreModal()
-    
 
     return (
         <div className={style.containerPrincipal}>
             <Header/>
+            <h1>Estuidantes</h1>
+            <ListStudents/>
             {view && 
                 <div className={style.modalBackdrop}>
                     <AddStudent/>
-                </div>
-            }
-            <Agenda/>
+                </div>}
         </div>
     )
 }

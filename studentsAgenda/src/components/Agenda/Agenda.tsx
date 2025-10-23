@@ -4,23 +4,22 @@ import style from './Agenda.module.css'
 export const Agenda = () => {
 
     const {students} = useStoreStudents() 
+    const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes']
 
     return (
         <div className={style.containerPrincipal}>
-            <table>
-                <thead>
-                    <th>Lunes</th>
-                    <th>Martes</th>
-                    <th>Miercoles</th>
-                    <th>Jueves</th>
-                    <th>Viernes</th>
-                </thead>
-                <tbody>
-                    {students.map((s) => (
-                        <tr>{s.name}</tr>
-                    ))}
-                </tbody>
-            </table>
+            {days.map((d) => (
+                <table>
+                    <thead>
+                        <th>{d}</th>
+                    </thead>
+                    <tbody>
+                        {students.map((s) => (
+                            s.days.map((day) => day.days === d)
+                        ))}
+                    </tbody>
+                </table>
+            ))}
         </div>
     )
 }

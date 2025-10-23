@@ -12,6 +12,7 @@
     border-radius: 10px;
     box-shadow: 2px 2px 15px black;
     gap: 20px;
+    
 }
 .containerData{
     display: flex;
@@ -24,8 +25,31 @@
 }
 .containerData input, select{
     border: 1px solid gray;
-    width: 100%;
+    width: 80%;
     padding: 5px;
+}
+.days{
+    display: flex;
+    
+}
+.containerDay{
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 1px;
+}
+.shedule{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.shedule input {
+    height: 40px;
+    width: 70px;
+    text-align: center;
 }
 .containerButtons{
     width: 100%;
@@ -45,4 +69,18 @@
     color: black;
     cursor: pointer;
     transition: 0.3s ease;
+}
+.emptyDay{
+    min-height: 40px;
+}
+
+@media (max-width : 800px) {
+    .containerDay{
+        display: flex;
+        flex-direction: column;
+    }
+    .shedule input {
+        
+        width: 60px;
+}   
 }
