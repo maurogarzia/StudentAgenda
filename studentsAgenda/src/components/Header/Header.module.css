@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     background-color: rgb(23, 23, 23);
+    max-height: 100px;
 }
 .title{
     padding: 10px;
@@ -37,6 +38,7 @@
     align-items: center;
     padding: 10px;
     gap: 10px;
+    
 }
 .containerSearch input{
     padding: 5px;
@@ -44,6 +46,17 @@
 }
 .menu{
     display: none;
+}
+.inputAndDropdown{
+    background-color: white;
+    border-bottom: 1px solid gray;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+.dropdown{
+    display: flex;
+    padding: 10px;
 }
 
 /* Menu responsivo */
@@ -90,11 +103,24 @@
     transition: 0.3s ease;
     cursor: pointer;
 }
+.modalBackdrop{
+    display: none;
+}
 
 @media (max-width : 800px) {
+    .modalBackdrop{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate('50%', '50');
+        background-color: rgba(0, 0, 0, 0.511);
+    }
     .menuResponsive{
         width: 100vw;
-        background-color: rgb(0, 0, 0);
+        background-color: rgb(33, 33, 33);
         position: absolute;
         top: 0;
         left: 0;

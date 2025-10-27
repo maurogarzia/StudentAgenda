@@ -5,10 +5,14 @@ import type { IStudents } from "../types/IStudents";
 interface IUseStoreStudents {
     students : IStudents[],
     activeStudent: IStudents | null
+    selectedStudent: IStudents | null
+
     setActiveStudents: (student: IStudents | null) => void
     addStudent : (newStudent : IStudents) => void  
     editStudent : (newStudent : IStudents, id: string) => void  
-    deleteStudent : ( id: string) => void  
+    deleteStudent : ( id: string) => void,
+    setSelectedStudent: (student: IStudents | null) => void
+    
 }
 
 export const useStoreStudents = create<IUseStoreStudents>()(
@@ -17,6 +21,9 @@ export const useStoreStudents = create<IUseStoreStudents>()(
             students: [],
             
             activeStudent: null,
+
+            selectedStudent: null,
+
 
             setActiveStudents: (student) => set({activeStudent : student}),
 
@@ -34,7 +41,9 @@ export const useStoreStudents = create<IUseStoreStudents>()(
                 students : state.students.filter((f) => (
                     f.id !== id
                 ))
-            }))
+            })),
+
+            setSelectedStudent: (student) => set({selectedStudent: student})
 
         }),
         {

@@ -1,4 +1,5 @@
 import { useStoreStudents } from '../../stores/useStoreStudents'
+import { StudentCard } from '../StudentCard/StudentCard'
 import style from './Agenda.module.css'
 
 export const Agenda = () => {
@@ -8,17 +9,24 @@ export const Agenda = () => {
 
     return (
         <div className={style.containerPrincipal}>
-            {days.map((d) => (
-                <table>
-                    <thead>
-                        <th>{d}</th>
-                    </thead>
-                    <tbody>
-                        {students.map((s) => (
-                            s.days.map((day) => day.days === d)
-                        ))}
-                    </tbody>
-                </table>
+            {days.map((day) => (
+                <div className={style.column}>
+                    <div className={style.day}>
+                        {day}
+                    </div>
+                    <div className={style.containerCards}>
+                        {students.filter(student => student.days.some(d => d.days === day))
+                            .map(student => (
+                                <StudentCard 
+                                    student={student}
+                                    name={student.name}
+                                    course={student.course}
+                                    schedule={student.days.find(d => d.days === day)?.schedule || ''}/>
+                            ))
+                        
+                        }
+                    </div>
+                </div>
             ))}
         </div>
     )

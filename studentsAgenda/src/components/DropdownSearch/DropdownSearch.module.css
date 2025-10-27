@@ -1,0 +1,24 @@
+.containerPrincipal{
+    position: absolute;
+    top: 9%;
+    min-width: 175px;
+    background-color: white;
+    padding: 5px;
+}
+.dropdown{
+    padding: 5px;
+    text-align: left;
+}
+.dropdown:hover{
+    background-color: rgb(200, 226, 248);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+@media (max-width : 800px) {
+    .containerPrincipal{
+        position: inherit;
+        color: black;
+        text-align: left;
+        
+    }
+}
